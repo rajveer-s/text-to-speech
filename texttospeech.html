@@ -1,63 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Text-to-Speech Example</title>
-    <style>
-      body {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        background: black;
-        overflow: hidden;
-      }
-      button {
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
-      }
-      h1,
-      h2,
-      h3,
-      h4,
-      p {
-        color: white;
-      }
-      textarea {
-        background-color: rgb(3, 3, 44);
-        color: white;
-      }
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Text-to-Speech</title>
   </head>
   <body>
-    <h1>Text-to-Speech Example</h1>
+    <h1>Text-to-Speech</h1>
     <textarea id="textArea" rows="42" cols="220">
-Hello, I'm a text-to-speech example.</textarea
+Hello, I'm a text-to-speech.</textarea
     >
     <br />
     <button id="speakButton">Speak</button>
-    <script>
-      const textArea = document.getElementById("textArea");
-      const speakButton = document.getElementById("speakButton");
-
-      // Check browser support
-      if ("speechSynthesis" in window) {
-        const synth = window.speechSynthesis;
-
-        speakButton.addEventListener("click", () => {
-          const textToSpeak = textArea.value;
-          const utterance = new SpeechSynthesisUtterance(textToSpeak);
-
-          // Configure pitch and rate for 'emotion'
-          utterance.pitch = 1; // Range: 0 to 2, 1 is default
-          utterance.rate = 1; // Range: 0.1 to 10, 1 is default
-
-          synth.speak(utterance);
-        });
-      } else {
-        alert("Sorry, your browser doesn't support the Web Speech API.");
-      }
-    </script>
+    <script src="./index.js"></script>
   </body>
 </html>
